@@ -24,7 +24,7 @@ function createApp(database: Database) {
     const cost = calculateCost(age, type, date2, baseCost);
     res.json({ cost });
   });
-  const parseDate2 = (dateString: string | undefined): Temporal.PlainDate | undefined => dateString ? Temporal.PlainDate.from(dateString) : undefined
+  const parseDate = (dateString: string | undefined): Temporal.PlainDate | undefined => dateString ? Temporal.PlainDate.from(dateString) : undefined
 
 
   function calculateCost(age: number | undefined, type: string, date: Temporal.PlainDate | undefined, baseCost: number) {
@@ -80,7 +80,7 @@ function createApp(database: Database) {
   function isHoliday(date: Temporal.PlainDate) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
-      const holiday = parseDate2(row.holiday);
+      const holiday = parseDate(row.holiday);
       if (
         holiday && date.equals(holiday)
       ) {
