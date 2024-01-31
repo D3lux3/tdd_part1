@@ -82,7 +82,7 @@ function createApp(database: Database) {
     return date.dayOfWeek == 1;
   }
 
-  function isHoliday(date: Temporal.PlainDate | undefined) {
+  function isHoliday(date: Temporal.PlainDate) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
       const holiday = parseDate2(row.holiday);
