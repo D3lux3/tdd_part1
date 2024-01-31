@@ -24,7 +24,7 @@ function createApp(database: Database) {
     const cost = calculateCost(age, type, date, baseCost);
     res.json({ cost });
   });
-  const parseDate2 = (dateString: string | undefined): Date | undefined => dateString ? Temporal.PlainDate.from(dateString) : undefined
+  const parseDate2 = (dateString: string | undefined): Temporal.PlainDate | undefined => dateString ? Temporal.PlainDate.from(dateString) : undefined
   function parseDate(dateString: string | undefined): Date | undefined {
     if (dateString) {
       return new Date(dateString);
